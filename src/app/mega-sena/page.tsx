@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { megaSenaResults } from "@/data/loterias/mega-sena"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Mega Sena",
@@ -49,16 +52,7 @@ export default function MegaSenaPage() {
               o valor pago em cada faixa de acerto.
             </p>
             <div id="quadrantes">
-              {megaSenaResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Mega-sena"
-                    cssClass="megasena"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={megaSenaResults} slug="mega-sena" lotteryName="Mega Sena" cssClass="megasena" />
             </div>
             <p>
               A Mega Sena é uma das loterias da Caixa Econômica Federal gerida

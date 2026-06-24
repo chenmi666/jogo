@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { diaDeSorteResults } from "@/data/loterias/dia-de-sorte"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Dia de Sorte",
@@ -47,16 +50,7 @@ export default function DiaDeSortePage() {
               Os últimos resultados do Dia de Sorte são informados nesta página.
             </p>
             <div id="quadrantes">
-              {diaDeSorteResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Dia de Sorte"
-                    cssClass="diadesorte"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={diaDeSorteResults} slug="dia-de-sorte" lotteryName="Dia de Sorte" cssClass="diadesorte" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

@@ -24,6 +24,7 @@ const staticPages = [
   { url: "/pernambuco/", priority: 0.8 },
   { url: "/rio-grande-do-sul/", priority: 0.8 },
   { url: "/sergipe/", priority: 0.8 },
+  { url: "/resultado-nacional/", priority: 0.8 },
   { url: "/puxadas-jogo-do-bicho/", priority: 0.7 },
   { url: "/tabela-jogo-do-bicho/", priority: 0.7 },
   { url: "/politica-de-privacidade/", priority: 0.3 },

@@ -5,8 +5,11 @@ import AnimalResultCard from "@/components/AnimalResultCard"
 import LotteryGrid from "@/components/LotteryGrid"
 import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
+import LiveBichoResults from "@/components/LiveBichoResults"
 import { bichoStates, caixaLoterias } from "@/data/navigation"
 import { rioDeJaneiroResults } from "@/data/jogo-do-bicho/rio-de-janeiro"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Deu no Poste - Resultado Oficial Jogo do Bicho",
@@ -63,9 +66,7 @@ export default function Home() {
           </div>
         </div>
         <div className="row justify-content-center quadrantes-home">
-          {rioDeJaneiroResults.map((result) => (
-            <AnimalResultCard key={result.id} result={result} />
-          ))}
+          <LiveBichoResults initialData={rioDeJaneiroResults} slug="rio-de-janeiro" />
         </div>
         <div id="resultado-por-dia"></div>
         <div className="espaco-menor"></div>

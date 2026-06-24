@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { quinaResults } from "@/data/loterias/quina"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Quina",
@@ -47,16 +50,7 @@ export default function QuinaPage() {
               Os últimos resultados da Quina são informados nesta página.
             </p>
             <div id="quadrantes">
-              {quinaResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Quina"
-                    cssClass="quina"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={quinaResults} slug="quina" lotteryName="Quina" cssClass="quina" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

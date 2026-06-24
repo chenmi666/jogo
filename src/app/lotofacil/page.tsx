@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { lotofacilResults } from "@/data/loterias/lotofacil"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Lotofácil",
@@ -49,16 +52,7 @@ export default function LotofacilPage() {
               o valor pago em cada faixa de acerto.
             </p>
             <div id="quadrantes">
-              {lotofacilResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Lotofácil"
-                    cssClass="lotofacil"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={lotofacilResults} slug="lotofacil" lotteryName="Lotofácil" cssClass="lotofacil" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { lotomaniaResults } from "@/data/loterias/lotomania"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Lotomania",
@@ -47,16 +50,7 @@ export default function LotomaniaPage() {
               Os últimos resultados da Lotomania são informados nesta página.
             </p>
             <div id="quadrantes">
-              {lotomaniaResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Lotomania"
-                    cssClass="lotomania"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={lotomaniaResults} slug="lotomania" lotteryName="Lotomania" cssClass="lotomania" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

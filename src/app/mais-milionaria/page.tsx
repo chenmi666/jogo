@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { maisMilionariaResults } from "@/data/loterias/mais-milionaria"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Mais Milionária",
@@ -48,16 +51,7 @@ export default function MaisMilionariaPage() {
               página.
             </p>
             <div id="quadrantes">
-              {maisMilionariaResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Mais Milionária"
-                    cssClass="maismilionaria"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={maisMilionariaResults} slug="mais-milionaria" lotteryName="Mais Milionária" cssClass="maismilionaria" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

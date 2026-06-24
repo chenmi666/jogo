@@ -11,6 +11,7 @@ export const bichoStates = [
   { label: "Rio Grande do Sul", href: "/rio-grande-do-sul/" },
   { label: "São Paulo", href: "/sao-paulo/" },
   { label: "Sergipe", href: "/sergipe/" },
+  { label: "Loteria Nacional", href: "/resultado-nacional/" },
   { label: "Puxadas do Bicho", href: "/puxadas-jogo-do-bicho/" },
   { label: "Tabela dos Bichos", href: "/tabela-jogo-do-bicho/" },
 ]

@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { timemaniaResults } from "@/data/loterias/timemania"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Timemania",
@@ -47,16 +50,7 @@ export default function TimemaniaPage() {
               Os últimos resultados da Timemania são informados nesta página.
             </p>
             <div id="quadrantes">
-              {timemaniaResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Timemania"
-                    cssClass="timemania"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={timemaniaResults} slug="timemania" lotteryName="Timemania" cssClass="timemania" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

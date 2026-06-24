@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { duplaSenaResults } from "@/data/loterias/dupla-sena"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Dupla Sena",
@@ -47,16 +50,7 @@ export default function DuplaSenaPage() {
               Os últimos resultados da Dupla Sena são informados nesta página.
             </p>
             <div id="quadrantes">
-              {duplaSenaResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Dupla Sena"
-                    cssClass="duplasena"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={duplaSenaResults} slug="dupla-sena" lotteryName="Dupla Sena" cssClass="duplasena" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

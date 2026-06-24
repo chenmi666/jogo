@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { superSeteResults } from "@/data/loterias/super-sete"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Super Sete",
@@ -47,16 +50,7 @@ export default function SuperSetePage() {
               Os últimos resultados do Super Sete são informados nesta página.
             </p>
             <div id="quadrantes">
-              {superSeteResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Super Sete"
-                    cssClass="supersete"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={superSeteResults} slug="super-sete" lotteryName="Super Sete" cssClass="supersete" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

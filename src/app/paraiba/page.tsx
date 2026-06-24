@@ -5,7 +5,10 @@ import LotteryGrid from "@/components/LotteryGrid"
 import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import { bichoStates } from "@/data/navigation"
+import LiveBichoResults from "@/components/LiveBichoResults"
 import { paraibaResults } from "@/data/jogo-do-bicho/paraiba"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Resultado Deu no Poste Paraíba",
@@ -30,9 +33,7 @@ export default function StatePage() {
             <p>Resultado do Deu no Poste da Paraíba, sorteio do Jogo do Bicho da Paraíba do primeiro ao décimo prêmio.</p>
             <p>Confira o resultado do Jogo do Bicho da Paraíba no site Deu no Poste, a milhar sorteada em cada faixa de premiação e o respectivo bicho.</p>
             <div id="quadrantes" className="row">
-              {paraibaResults.map((result) => (
-                <AnimalResultCard key={result.id} result={result} />
-              ))}
+              <LiveBichoResults initialData={paraibaResults} slug="paraiba" />
             </div>
           </div>
         </div>

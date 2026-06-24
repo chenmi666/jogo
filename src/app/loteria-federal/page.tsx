@@ -6,7 +6,10 @@ import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import ArticleSchema from "@/components/ArticleSchema"
 import { caixaLoterias } from "@/data/navigation"
+import LiveLotteryResults from "@/components/LiveLotteryResults"
 import { federalResults } from "@/data/loterias/loteria-federal"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Loteria Federal",
@@ -48,16 +51,7 @@ export default function LoteriaFederalPage() {
               página.
             </p>
             <div id="quadrantes">
-              {federalResults.map((result) => (
-                <div key={result.id}>
-                  <div className="espaco-menor" />
-                  <LotteryResultCard
-                    result={result}
-                    lotteryName="Loteria Federal"
-                    cssClass="federal"
-                  />
-                </div>
-              ))}
+              <LiveLotteryResults initialData={federalResults} slug="loteria-federal" lotteryName="Loteria Federal" cssClass="federal" />
             </div>
             <p>
               O site deunoposte.app.br não possui vínculo com pessoas e empresas

@@ -5,7 +5,10 @@ import LotteryGrid from "@/components/LotteryGrid"
 import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import { bichoStates } from "@/data/navigation"
+import LiveBichoResults from "@/components/LiveBichoResults"
 import { paratodosBahiaResults } from "@/data/jogo-do-bicho/paratodos-bahia"
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: "Resultado Deu no Poste Bahia",
@@ -30,9 +33,7 @@ export default function StatePage() {
             <p>Resultado do Deu no Poste da Bahia, sorteio do Jogo do Bicho da Bahia do primeiro ao décimo prêmio.</p>
             <p>Confira o resultado do Jogo do Bicho da Bahia no site Deu no Poste, a milhar sorteada em cada faixa de premiação e o respectivo bicho.</p>
             <div id="quadrantes" className="row">
-              {paratodosBahiaResults.map((result) => (
-                <AnimalResultCard key={result.id} result={result} />
-              ))}
+              <LiveBichoResults initialData={paratodosBahiaResults} slug="paratodos-bahia" />
             </div>
           </div>
         </div>
