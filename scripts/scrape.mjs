@@ -241,6 +241,7 @@ function parseDiaDeSorte($, $card) {
 function parseBichoState($, $card) {
   const $topo = $card.find(".topo-tabela-titulos")
   const sorteio = getText($, $topo.find(".sorteio")).replace("Sorteio ", "")
+  const titulo = getText($, $topo.find(".titulo"))
   const textoData = getText($, $topo.find(".texto-sorteio"))
   const { dayOfWeek, date } = parseDateInfo(textoData)
 
@@ -258,7 +259,30 @@ function parseBichoState($, $card) {
     prizes.push({ position, milhar, animal, group: group || undefined })
   })
 
-  return { sorteio, dayOfWeek, date, prizes }
+  // Capture extra content beyond bicho-individual (e.g. Super 5, 26 da Sorte)
+  const extra = []
+  $card.find(".numeros-bicho").children("p").each((_, el) => {
+    const $el = $(el)
+    const bold = $el.find("b, strong")
+    if (!bold.length) return
+    const text = bold.first().text().trim()
+    // Skip Soma / Multiplicação (already part of prizes)
+    if (text === "Soma" || text.startsWith("Soma ") || text === "Multiplicação" || text.startsWith("Multiplicação ")) return
+    // Try to parse "LABEL: NUMBERS" pattern
+    const colonIdx = text.indexOf(":")
+    if (colonIdx > 0) {
+      const afterColon = text.slice(colonIdx + 1).trim()
+      const numbers = afterColon.split(/[\s,;]+/).filter(t => t && /^\d+$/.test(t))
+      if (numbers.length >= 2) {
+        extra.push({ type: "numbers", label: text.slice(0, colonIdx).trim(), values: numbers })
+        return
+      }
+    }
+    // Fallback: store as text
+    extra.push({ type: "text", text })
+  })
+
+  return { sorteio, titulo, dayOfWeek, date, prizes, extra: extra.length ? extra : undefined }
 }
 
 // --- URL discovery from homepage ---

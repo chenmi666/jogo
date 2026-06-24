@@ -10,8 +10,9 @@ export default function AnimalResultCard({
       <p className="chamada-tabela">{result.timeLabel}</p>
       <div className="caixa-tabela bixo">
         <div className="topo-tabela topo-tabela-titulos">
+          <span className="sorteio">Sorteio {result.time}</span>
           <h2>
-            <span className="titulo">{result.time}</span>
+            <span className="titulo">{result.titulo}</span>
             <span className="texto-sorteio">
               {result.dayOfWeek} {result.date}
             </span>
@@ -29,6 +30,13 @@ export default function AnimalResultCard({
                 </small>
               </div>
             ))}
+            {result.extra?.map((item, i) =>
+              item.type === "numbers" ? (
+                <p key={i}><b style={{ fontSize: 20 }}>{item.label}: {item.values!.join("  ")}</b></p>
+              ) : (
+                <p key={i}><b style={{ fontSize: 20 }}>{item.text}</b></p>
+              )
+            )}
           </div>
         </div>
       </div>

@@ -11,27 +11,27 @@ import { paratodosBahiaResults } from "@/data/jogo-do-bicho/paratodos-bahia"
 export const revalidate = 300
 
 export const metadata: Metadata = {
-  title: "Resultado Deu no Poste Bahia",
-  description: "Resultado do Deu no Poste da Bahia, sorteio do Jogo do Bicho da Bahia do primeiro ao décimo prêmio.",
+  title: "Paratodos Bahia Jogo do Bicho",
+  description: "Resultado do Jogo do Bicho Paratodos Bahia, todos os sorteios do Deu no Poste da Bahia da banca Paratodos de hoje.",
   openGraph: {
-    title: "Resultado Deu no Poste Bahia",
-    description: "Resultado do Deu no Poste da Bahia, sorteio do Jogo do Bicho da Bahia do primeiro ao décimo prêmio.",
+    title: "Paratodos Bahia Jogo do Bicho",
+    description: "Resultado do Jogo do Bicho Paratodos Bahia, todos os sorteios do Deu no Poste da Bahia da banca Paratodos de hoje.",
   },
 }
 
 export default function StatePage() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Bahia", url: "/paratodos-bahia/" }]} />
+      <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "ParaTodos Bahia", url: "/paratodos-bahia/" }]} />
       <AdBanner />
-      <BreadcrumbNav items={[{ name: "Home", url: "/" }, { name: "Bahia", url: "/paratodos-bahia/" }]} />
+      <BreadcrumbNav items={[{ name: "Home", url: "/" }, { name: "ParaTodos Bahia", url: "/paratodos-bahia/" }]} />
       <div className="container">
         <div className="espaco" />
         <div className="row justify-content-center">
           <div className="col-12 texto-paginas">
-            <h1 className="titulo-paginas text-center">Resultado Deu no Poste Bahia</h1>
-            <p>Resultado do Deu no Poste da Bahia, sorteio do Jogo do Bicho da Bahia do primeiro ao décimo prêmio.</p>
-            <p>Confira o resultado do Jogo do Bicho da Bahia no site Deu no Poste, a milhar sorteada em cada faixa de premiação e o respectivo bicho.</p>
+            <h1 className="titulo-paginas text-center">Paratodos Bahia Jogo do Bicho</h1>
+            <p>Resultado do Jogo do Bicho Paratodos Bahia, todos os sorteios do Deu no Poste da Bahia da banca Paratodos de hoje.</p>
+            <p>O site Deu no Poste publica nesta página o resultado do Jogo do Bicho Paratodos da Bahia, para conferir os números da banca ParaTodos Bahia.</p>
             <div id="quadrantes" className="row">
               <LiveBichoResults initialData={paratodosBahiaResults} slug="paratodos-bahia" />
             </div>

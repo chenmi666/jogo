@@ -1,10 +1,12 @@
-import type { BichoResult, BichoPrize } from "@/types"
+import type { BichoResult, BichoPrize, ExtraItem } from "@/types"
 
 export interface RawBichoDraw {
   sorteio: string
+  titulo?: string
   dayOfWeek: string
   date: string
   prizes: BichoPrize[]
+  extra?: ExtraItem[]
 }
 
 export const MONTHS = [
@@ -41,20 +43,20 @@ export function rawToBichoResult(raw: RawBichoDraw, slug: string): BichoResult {
     timeLabel += "."
   }
 
-  return { id, date: raw.date, dayOfWeek: raw.dayOfWeek, time, timeLabel, prizes: raw.prizes }
+  return { id, date: raw.date, dayOfWeek: raw.dayOfWeek, time, titulo: raw.titulo || "", timeLabel, prizes: raw.prizes, extra: raw.extra }
 }
 
 export function compactBichoResult(result: BichoResult): BichoResult {
   const top5 = result.prizes.slice(0, 5)
   const nums = top5.map((p) => parseInt(p.milhar, 10))
   const soma = nums.reduce((acc, n) => acc + n, 0)
-  const mult = Math.floor(nums[0] * nums[1] / 1000) % 1000
+  const mult = String(Math.floor(nums[0] * nums[1] / 1000) % 1000).padStart(3, "0")
   return {
     ...result,
     prizes: [
       ...top5,
       { position: 6, milhar: String(soma), animal: "Soma" },
-      { position: 7, milhar: String(mult), animal: "Multiplicação" },
+      { position: 7, milhar: mult, animal: "Multiplicação" },
     ],
   }
 }

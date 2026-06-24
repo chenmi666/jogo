@@ -9,7 +9,10 @@ import { bichoStates, caixaLoterias } from "@/data/navigation"
 import { rioDeJaneiroResults } from "@/data/jogo-do-bicho/rio-de-janeiro"
 import { compactBichoResult } from "@/lib/bicho-utils"
 
-const rioDeJaneiroResultsCompact = rioDeJaneiroResults.map(compactBichoResult)
+const rioDeJaneiroResultsCompact = rioDeJaneiroResults.map((r) => ({
+  ...compactBichoResult(r),
+  titulo: "Deu no Poste Rio de Janeiro",
+}))
 
 export const revalidate = 300
 

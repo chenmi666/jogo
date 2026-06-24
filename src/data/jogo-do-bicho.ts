@@ -27,9 +27,9 @@ export const bichoStatesMeta: Record<string, BichoStateMeta> = {
   },
   "paratodos-bahia": {
     slug: "paratodos-bahia",
-    name: "Bahia",
+    name: "ParaTodos Bahia",
     description:
-      "Resultado do Deu no Poste da Bahia, sorteio do Jogo do Bicho da Bahia.",
+      "Resultado do Jogo do Bicho Paratodos Bahia, todos os sorteios do Deu no Poste da Bahia da banca Paratodos de hoje.",
   },
   ceara: {
     slug: "ceara",

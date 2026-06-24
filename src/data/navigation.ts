@@ -1,5 +1,5 @@
 export const bichoStates = [
-  { label: "Bahia", href: "/paratodos-bahia/" },
+  { label: "ParaTodos Bahia", href: "/paratodos-bahia/" },
   { label: "Brasília", href: "/brasilia/" },
   { label: "Ceará", href: "/ceara/" },
   { label: "Goiás", href: "/goias/" },

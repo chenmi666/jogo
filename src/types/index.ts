@@ -27,13 +27,22 @@ export interface BichoPrize {
   group?: number
 }
 
+export interface ExtraItem {
+  type: "numbers" | "text"
+  label?: string
+  values?: string[]
+  text?: string
+}
+
 export interface BichoResult {
   id: string
   date: string
   dayOfWeek: string
   time: string
+  titulo: string
   timeLabel: string
   prizes: BichoPrize[]
+  extra?: ExtraItem[]
 }
 
 export interface NavItem {
