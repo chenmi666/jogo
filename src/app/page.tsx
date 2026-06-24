@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import AdBanner from "@/components/AdBanner"
-import AnimalResultCard from "@/components/AnimalResultCard"
 import LotteryGrid from "@/components/LotteryGrid"
 import BreadcrumbNav from "@/components/BreadcrumbNav"
 import BreadcrumbSchema from "@/components/BreadcrumbSchema"
@@ -66,7 +65,7 @@ export default function Home() {
           </div>
         </div>
         <div className="row justify-content-center quadrantes-home">
-          <LiveBichoResults initialData={rioDeJaneiroResults} slug="rio-de-janeiro" />
+          <LiveBichoResults initialData={rioDeJaneiroResults} slug="rio-de-janeiro" compact />
         </div>
         <div id="resultado-por-dia"></div>
         <div className="espaco-menor"></div>

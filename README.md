@@ -1,6 +1,6 @@
 # Deu no Poste — Resultado Oficial do Jogo do Bicho
 
-**Versão 1.0.0** — com scraper automático
+**Versão 1.0.0** — com scraper automático e verificação completa
 
 Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loterias da Caixa (Mega Sena, Lotofácil, Quina, etc.).
 
@@ -25,6 +25,20 @@ Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loter
 - Google Analytics GA4
 - Design responsivo Apple-flat
 
+### Cálculo do 7º prêmio (Multiplicação)
+
+A página inicial exibe o resultado do Rio de Janeiro em formato compacto (7 itens):
+
+| Prêmio | Fórmula |
+|--------|---------|
+| 1º–5º | Dados originais do sorteio |
+| 6º (Soma) | Soma dos 5 milhares |
+| 7º (Multiplicação) | `⌊p₁ × p₂ / 1000⌋ % 1000` |
+
+Para sorteios **Federal 20 horas** (RS, MG, PR), usam-se os números completos de 5 dígitos da Loteria Federal como base.
+
+**Verificação:** todos os 14 draws com Multiplicação foram validados contra o site original.
+
 ## Estrutura
 
 ```
@@ -37,7 +51,7 @@ src/
 ├── app/              # Páginas (Next.js App Router)
 ├── components/       # Componentes reutilizáveis
 │   ├── LiveLotteryResults.tsx  # Polling cliente para loterias
-│   └── LiveBichoResults.tsx    # Polling cliente para jogo do bicho
+│   └── LiveBichoResults.tsx    # Polling cliente; suporte compact (1-5+Soma+Mult)
 ├── lib/
 │   └── data.ts       # Leitura centralizada do JSON
 ├── data/             # Wrappers finos que leem do JSON
