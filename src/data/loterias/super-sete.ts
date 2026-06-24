@@ -1,0 +1,148 @@
+import type { LotteryResult } from "@/types"
+
+export const superSeteResults: LotteryResult[] = [
+  {
+    id: "608",
+    date: "19/06/2026",
+    dayOfWeek: "sexta-feira",
+    numbers: [3, 7, 1, 9, 4, 6, 2],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 8, value: 12345.67 },
+      { hits: 5, winners: 234, value: 456.78 },
+      { hits: 4, winners: 5678, value: 23.45 },
+      { hits: 3, winners: 56789, value: 5.0 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 2500000,
+    nextDate: "22/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 608 paga o valor de R$ 1.234.567,89 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 9.876.543,00.",
+  },
+  {
+    id: "607",
+    date: "17/06/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [5, 2, 8, 0, 6, 3, 9],
+    prizes: [
+      { hits: 7, winners: 1, value: 2345678.9 },
+      { hits: 6, winners: 12, value: 8901.23 },
+      { hits: 5, winners: 345, value: 312.45 },
+      { hits: 4, winners: 7890, value: 18.9 },
+      { hits: 3, winners: 67890, value: 4.5 },
+    ],
+    winners: "BELO HORIZONTE (MG) - 1",
+    nextPrize: 500000,
+    nextDate: "19/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 607 paga o valor de R$ 4.321.098,76 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 14.321.098,00.",
+  },
+  {
+    id: "606",
+    date: "15/06/2026",
+    dayOfWeek: "segunda-feira",
+    numbers: [1, 4, 6, 3, 8, 0, 7],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 5, value: 18901.23 },
+      { hits: 5, winners: 189, value: 534.56 },
+      { hits: 4, winners: 6543, value: 26.78 },
+      { hits: 3, winners: 54321, value: 5.5 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 1800000,
+    nextDate: "17/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 606 paga o valor de R$ 890.123,45 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 7.654.321,00.",
+  },
+  {
+    id: "605",
+    date: "12/06/2026",
+    dayOfWeek: "sexta-feira",
+    numbers: [7, 0, 4, 8, 2, 5, 1],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 7, value: 14567.89 },
+      { hits: 5, winners: 256, value: 412.34 },
+      { hits: 4, winners: 7123, value: 21.34 },
+      { hits: 3, winners: 65432, value: 4.75 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 1200000,
+    nextDate: "15/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 605 paga o valor de R$ 678.901,23 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 6.543.210,00.",
+  },
+  {
+    id: "604",
+    date: "10/06/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [2, 6, 9, 1, 5, 7, 3],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 4, value: 23456.78 },
+      { hits: 5, winners: 178, value: 567.89 },
+      { hits: 4, winners: 5890, value: 28.9 },
+      { hits: 3, winners: 45678, value: 5.25 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 800000,
+    nextDate: "12/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 604 paga o valor de R$ 567.890,12 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 5.432.109,00.",
+  },
+  {
+    id: "603",
+    date: "08/06/2026",
+    dayOfWeek: "segunda-feira",
+    numbers: [4, 8, 2, 6, 0, 9, 5],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 3, value: 30123.45 },
+      { hits: 5, winners: 145, value: 678.9 },
+      { hits: 4, winners: 4567, value: 32.1 },
+      { hits: 3, winners: 38765, value: 5.75 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 500000,
+    nextDate: "10/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 603 paga o valor de R$ 456.789,01 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 4.321.098,00.",
+  },
+  {
+    id: "602",
+    date: "05/06/2026",
+    dayOfWeek: "sexta-feira",
+    numbers: [6, 1, 5, 7, 3, 8, 4],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 6, value: 16789.01 },
+      { hits: 5, winners: 234, value: 445.56 },
+      { hits: 4, winners: 6789, value: 24.56 },
+      { hits: 3, winners: 54321, value: 5.0 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 600000,
+    nextDate: "08/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 602 paga o valor de R$ 789.012,34 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 6.789.012,00.",
+  },
+  {
+    id: "601",
+    date: "03/06/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [0, 3, 7, 2, 9, 4, 8],
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 2, value: 45678.9 },
+      { hits: 5, winners: 123, value: 789.01 },
+      { hits: 4, winners: 3456, value: 38.9 },
+      { hits: 3, winners: 29876, value: 6.0 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 400000,
+    nextDate: "05/06/2026",
+    summary:
+      "O sorteio do Super Sete concurso 601 paga o valor de R$ 345.678,90 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 3.210.987,00.",
+  },
+]

@@ -1,0 +1,148 @@
+import type { LotteryResult } from "@/types"
+
+export const federalResults: LotteryResult[] = [
+  {
+    id: "5908",
+    date: "20/06/2026",
+    dayOfWeek: "sábado",
+    numbers: [12345, 67890, 23456, 78901, 34567],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - SÃO PAULO (SP), 2º - RIO DE JANEIRO (RJ), 3º - BELO HORIZONTE (MG), 4º - CURITIBA (PR), 5º - SALVADOR (BA)",
+    nextPrize: 500000,
+    nextDate: "24/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5908 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 12.345 vendido em São Paulo (SP).",
+  },
+  {
+    id: "5907",
+    date: "17/06/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [45678, 90123, 56789, 11234, 67890],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - BRASÍLIA (DF), 2º - SÃO PAULO (SP), 3º - RECIFE (PE), 4º - FORTALEZA (CE), 5º - PORTO ALEGRE (RS)",
+    nextPrize: 500000,
+    nextDate: "20/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5907 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 45.678 vendido em Brasília (DF).",
+  },
+  {
+    id: "5906",
+    date: "13/06/2026",
+    dayOfWeek: "sábado",
+    numbers: [23456, 78901, 34567, 89012, 45678],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - RIO DE JANEIRO (RJ), 2º - BELO HORIZONTE (MG), 3º - SÃO PAULO (SP), 4º - SALVADOR (BA), 5º - BRASÍLIA (DF)",
+    nextPrize: 500000,
+    nextDate: "17/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5906 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 23.456 vendido no Rio de Janeiro (RJ).",
+  },
+  {
+    id: "5905",
+    date: "10/06/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [56789, 11234, 67890, 12345, 78901],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - SALVADOR (BA), 2º - CURITIBA (PR), 3º - FORTALEZA (CE), 4º - SÃO PAULO (SP), 5º - RECIFE (PE)",
+    nextPrize: 500000,
+    nextDate: "13/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5905 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 56.789 vendido em Salvador (BA).",
+  },
+  {
+    id: "5904",
+    date: "06/06/2026",
+    dayOfWeek: "sábado",
+    numbers: [34567, 89012, 45678, 90123, 56789],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - FORTALEZA (CE), 2º - RECIFE (PE), 3º - BRASÍLIA (DF), 4º - BELO HORIZONTE (MG), 5º - RIO DE JANEIRO (RJ)",
+    nextPrize: 500000,
+    nextDate: "10/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5904 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 34.567 vendido em Fortaleza (CE).",
+  },
+  {
+    id: "5903",
+    date: "03/06/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [67890, 12345, 78901, 23456, 89012],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - BELO HORIZONTE (MG), 2º - PORTO ALEGRE (RS), 3º - RIO DE JANEIRO (RJ), 4º - CURITIBA (PR), 5º - SÃO PAULO (SP)",
+    nextPrize: 500000,
+    nextDate: "06/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5903 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 67.890 vendido em Belo Horizonte (MG).",
+  },
+  {
+    id: "5902",
+    date: "30/05/2026",
+    dayOfWeek: "sábado",
+    numbers: [78901, 23456, 89012, 34567, 90123],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - PORTO ALEGRE (RS), 2º - SÃO PAULO (SP), 3º - SALVADOR (BA), 4º - BRASÍLIA (DF), 5º - FORTALEZA (CE)",
+    nextPrize: 500000,
+    nextDate: "03/06/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5902 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 78.901 vendido em Porto Alegre (RS).",
+  },
+  {
+    id: "5901",
+    date: "27/05/2026",
+    dayOfWeek: "quarta-feira",
+    numbers: [89012, 34567, 90123, 45678, 11234],
+    prizes: [
+      { hits: 1, winners: 1, value: 500000.0 },
+      { hits: 2, winners: 1, value: 28800.0 },
+      { hits: 3, winners: 1, value: 24500.0 },
+      { hits: 4, winners: 1, value: 19500.0 },
+      { hits: 5, winners: 1, value: 18300.0 },
+    ],
+    winners: "1º - CURITIBA (PR), 2º - BRASÍLIA (DF), 3º - RECIFE (PE), 4º - RIO DE JANEIRO (RJ), 5º - BELO HORIZONTE (MG)",
+    nextPrize: 500000,
+    nextDate: "30/05/2026",
+    summary:
+      "O sorteio da Loteria Federal concurso 5901 distribui R$ 591.100,00 em prêmios, com o 1º prêmio de R$ 500.000,00 para o bilhete 89.012 vendido em Curitiba (PR).",
+  },
+]

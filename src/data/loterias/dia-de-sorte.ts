@@ -1,0 +1,148 @@
+import type { LotteryResult } from "@/types"
+
+export const diaDeSorteResults: LotteryResult[] = [
+  {
+    id: "1008",
+    date: "20/06/2026",
+    dayOfWeek: "sábado",
+    numbers: [3, 8, 12, 15, 19, 22, 27],
+    month: "OUTUBRO",
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 12, value: 12345.67 },
+      { hits: 5, winners: 456, value: 345.67 },
+      { hits: 4, winners: 12345, value: 18.9 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 1800000,
+    nextDate: "23/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1008 paga o valor de R$ 1.234.567,89 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 8.765.432,00.",
+  },
+  {
+    id: "1007",
+    date: "18/06/2026",
+    dayOfWeek: "quinta-feira",
+    numbers: [2, 7, 11, 14, 18, 24, 30],
+    month: "JANEIRO",
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 8, value: 18901.23 },
+      { hits: 5, winners: 345, value: 412.34 },
+      { hits: 4, winners: 10987, value: 21.34 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 1200000,
+    nextDate: "20/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1007 paga o valor de R$ 987.654,32 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 7.654.321,00.",
+  },
+  {
+    id: "1006",
+    date: "16/06/2026",
+    dayOfWeek: "terça-feira",
+    numbers: [5, 9, 13, 17, 23, 26, 31],
+    month: "JULHO",
+    prizes: [
+      { hits: 7, winners: 1, value: 1567890.12 },
+      { hits: 6, winners: 14, value: 10234.56 },
+      { hits: 5, winners: 567, value: 289.01 },
+      { hits: 4, winners: 14321, value: 16.45 },
+    ],
+    winners: "SALVADOR (BA) - 1",
+    nextPrize: 300000,
+    nextDate: "18/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1006 paga o valor de R$ 3.456.789,01 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 12.345.678,00.",
+  },
+  {
+    id: "1005",
+    date: "13/06/2026",
+    dayOfWeek: "sábado",
+    numbers: [1, 6, 10, 16, 20, 25, 29],
+    month: "MARÇO",
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 6, value: 23456.78 },
+      { hits: 5, winners: 234, value: 534.56 },
+      { hits: 4, winners: 8765, value: 23.45 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 1500000,
+    nextDate: "16/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1005 paga o valor de R$ 789.012,34 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 6.543.210,00.",
+  },
+  {
+    id: "1004",
+    date: "11/06/2026",
+    dayOfWeek: "quinta-feira",
+    numbers: [4, 8, 14, 18, 21, 28, 30],
+    month: "DEZEMBRO",
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 9, value: 15678.9 },
+      { hits: 5, winners: 389, value: 378.45 },
+      { hits: 4, winners: 11234, value: 19.78 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 900000,
+    nextDate: "13/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1004 paga o valor de R$ 890.123,45 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 7.890.123,00.",
+  },
+  {
+    id: "1003",
+    date: "09/06/2026",
+    dayOfWeek: "terça-feira",
+    numbers: [3, 7, 12, 15, 22, 27, 31],
+    month: "MAIO",
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 5, value: 26789.01 },
+      { hits: 5, winners: 278, value: 467.89 },
+      { hits: 4, winners: 9876, value: 22.34 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 600000,
+    nextDate: "11/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1003 paga o valor de R$ 678.901,23 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 5.678.901,00.",
+  },
+  {
+    id: "1002",
+    date: "06/06/2026",
+    dayOfWeek: "sábado",
+    numbers: [2, 5, 11, 19, 24, 26, 28],
+    month: "AGOSTO",
+    prizes: [
+      { hits: 7, winners: 1, value: 2345678.9 },
+      { hits: 6, winners: 18, value: 8901.23 },
+      { hits: 5, winners: 678, value: 234.56 },
+      { hits: 4, winners: 16543, value: 15.0 },
+    ],
+    winners: "CURITIBA (PR) - 1",
+    nextPrize: 300000,
+    nextDate: "09/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1002 paga o valor de R$ 4.567.890,12 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 14.321.098,00.",
+  },
+  {
+    id: "1001",
+    date: "04/06/2026",
+    dayOfWeek: "quinta-feira",
+    numbers: [1, 4, 9, 13, 20, 23, 25],
+    month: "NOVEMBRO",
+    prizes: [
+      { hits: 7, winners: 0, value: 0 },
+      { hits: 6, winners: 7, value: 20123.45 },
+      { hits: 5, winners: 312, value: 456.78 },
+      { hits: 4, winners: 10234, value: 20.12 },
+    ],
+    winners: "Sem ganhadores",
+    nextPrize: 3000000,
+    nextDate: "06/06/2026",
+    summary:
+      "O sorteio do Dia de Sorte concurso 1001 paga o valor de R$ 1.234.567,89 aos ganhadores considerando todas as faixas de premiação, já o valor arrecadado em apostas é de R$ 9.876.543,00.",
+  },
+]

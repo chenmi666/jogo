@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Deu no Poste — Resultado Oficial do Jogo do Bicho
 
-## Getting Started
+**Versão 1.0.0**
 
-First, run the development server:
+Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loterias da Caixa (Mega Sena, Lotofácil, Quina, etc.).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tecnologias
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript
+- Bootstrap 4 + CSS personalizado
+- Deploy: Zeabur (output standalone)
+
+## Funcionalidades
+
+- Resultados estáticos de 10 loterias Caixa + 12 estados do Jogo do Bicho
+- Navegação com abas iOS-style (Jogo do Bicho / Loterias da Caixa)
+- Breadcrumb visível em todas as páginas
+- Dados estruturados (JSON-LD: BreadcrumbList, Article)
+- Sitemap dinâmico (29 URLs)
+- Google Analytics GA4
+- Design responsivo Apple-flat
+
+## Estrutura
+
+```
+src/
+├── app/            # Páginas (Next.js App Router)
+│   ├── loteria-federal/
+│   ├── mega-sena/
+│   ├── ...         # 10 loterias + 12 estados + páginas informativas
+│   └── sitemap.ts
+├── components/     # Componentes reutilizáveis
+├── data/           # Dados estáticos (resultados, navegação)
+│   ├── loterias/
+│   └── jogo-do-bicho/
+└── types/          # Tipos TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desenvolvimento
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este é um projeto privado.
