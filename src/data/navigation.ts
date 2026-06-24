@@ -3,6 +3,7 @@ export const bichoStates = [
   { label: "Brasília", href: "/brasilia/" },
   { label: "Ceará", href: "/ceara/" },
   { label: "Goiás", href: "/goias/" },
+  { label: "Loteria Nacional", href: "/resultado-nacional/" },
   { label: "Minas Gerais", href: "/minas-gerais/" },
   { label: "Paraíba", href: "/paraiba/" },
   { label: "Paraná", href: "/parana/" },
@@ -11,9 +12,8 @@ export const bichoStates = [
   { label: "Rio Grande do Sul", href: "/rio-grande-do-sul/" },
   { label: "São Paulo", href: "/sao-paulo/" },
   { label: "Sergipe", href: "/sergipe/" },
-  { label: "Loteria Nacional", href: "/resultado-nacional/" },
-  { label: "Puxadas do Bicho", href: "/puxadas-jogo-do-bicho/" },
   { label: "Tabela dos Bichos", href: "/tabela-jogo-do-bicho/" },
+  { label: "Puxadas do Bicho", href: "/puxadas-jogo-do-bicho/" },
 ]
 
 export const caixaLoterias = [
@@ -24,9 +24,9 @@ export const caixaLoterias = [
   { label: "Lotomania", href: "/lotomania/" },
   { label: "Loteria Federal", href: "/loteria-federal/" },
   { label: "Dupla Sena", href: "/dupla-sena/" },
+  { label: "Timemania", href: "/timemania/" },
   { label: "Dia de Sorte", href: "/dia-de-sorte/" },
   { label: "Super Sete", href: "/super-sete/" },
-  { label: "Timemania", href: "/timemania/" },
 ]
 
 export const footerLinks = [
