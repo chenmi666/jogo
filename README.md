@@ -53,7 +53,8 @@ src/
 │   ├── LiveLotteryResults.tsx  # Polling cliente para loterias
 │   └── LiveBichoResults.tsx    # Polling cliente; suporte compact (1-5+Soma+Mult)
 ├── lib/
-│   └── data.ts       # Leitura centralizada do JSON
+│   ├── data.ts       # Leitura centralizada do JSON (build-time, server)
+│   └── bicho-utils.ts # Utilitários compartilhados (raw→BichoResult, compactOne)
 ├── data/             # Wrappers finos que leem do JSON
 └── types/            # Tipos TypeScript
 ```

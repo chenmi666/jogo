@@ -7,6 +7,9 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import LiveBichoResults from "@/components/LiveBichoResults"
 import { bichoStates, caixaLoterias } from "@/data/navigation"
 import { rioDeJaneiroResults } from "@/data/jogo-do-bicho/rio-de-janeiro"
+import { compactBichoResult } from "@/lib/bicho-utils"
+
+const rioDeJaneiroResultsCompact = rioDeJaneiroResults.map(compactBichoResult)
 
 export const revalidate = 300
 
@@ -65,7 +68,7 @@ export default function Home() {
           </div>
         </div>
         <div className="row justify-content-center quadrantes-home">
-          <LiveBichoResults initialData={rioDeJaneiroResults} slug="rio-de-janeiro" compact />
+          <LiveBichoResults initialData={rioDeJaneiroResultsCompact} slug="rio-de-janeiro" compact />
         </div>
         <div id="resultado-por-dia"></div>
         <div className="espaco-menor"></div>
