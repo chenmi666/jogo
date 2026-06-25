@@ -4,7 +4,7 @@ import { resolve, dirname } from "path"
 import { fileURLToPath } from "url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const BASE = "https://deunoposteagora.com"
+const BASE = "https://deunoposte.app.br"
 
 function parseBrl(str) {
   if (!str) return 0
