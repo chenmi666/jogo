@@ -67,7 +67,7 @@ export default function PoliticaDePrivacidade() {
               De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem
               direito a solicitar acesso, correção, exclusão ou portabilidade
               dos seus dados pessoais. Para exercer esses direitos, entre em
-              contato conosco através do e-mail contato@deunoposte.app.br.
+              contato conosco através do e-mail contato@deunoposteagora.com.
             </p>
             <h2>Alterações nesta política</h2>
             <p>

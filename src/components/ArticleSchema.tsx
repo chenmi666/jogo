@@ -12,7 +12,7 @@ export default function ArticleSchema({
     "@type": "Article",
     headline,
     description,
-    image: image || "https://deunoposte.app.br/templates/img/logo-deu-no-poste.png",
+    image: image || "https://deunoposteagora.com/templates/img/logo-deu-no-poste.png",
     author: {
       "@type": "Organization",
       name: "Deu no Poste",
@@ -22,7 +22,7 @@ export default function ArticleSchema({
       name: "Deu no Poste",
       logo: {
         "@type": "ImageObject",
-        url: "https://deunoposte.app.br/templates/img/logo-deu-no-poste.png",
+        url: "https://deunoposteagora.com/templates/img/logo-deu-no-poste.png",
       },
     },
   }

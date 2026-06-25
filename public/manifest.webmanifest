@@ -1,15 +1,20 @@
 {
 	"background_color": "white",
-	"description": "O site deunoposte.app.br foi criado com o objetivo do apostador conferir o resultado do Jogo do Bicho Deu no Poste, confira a milhar sorteada em cada faixa de premiação e o respectivo bicho.",
+	"description": "O site deunoposteagora.com foi criado com o objetivo do apostador conferir o resultado do Jogo do Bicho Deu no Poste, confira a milhar sorteada em cada faixa de premiação e o respectivo bicho.",
 	"display": "minimal-UI",
 	"icons": [
 	{
-		"src": "/templates/img/favicon/apple-icon-precomposed.png",
+		"src": "/templates/img/favicon/web-app-manifest-192x192.png",
 		"sizes": "192x192",
+		"type": "image/png"
+	},
+	{
+		"src": "/templates/img/favicon/web-app-manifest-512x512.png",
+		"sizes": "512x512",
 		"type": "image/png"
 	}
 	],
 	"name": "Deu no Poste",
 	"short_name": "Deu no Poste",
-	"start_url": "https://deunoposte.app.br/"
+	"start_url": "https://deunoposteagora.com/"
 }

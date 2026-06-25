@@ -14,11 +14,11 @@ export const revalidate = 300
 export const metadata: Metadata = {
   title: "Loteria Federal",
   description:
-    "Resultado da Loteria Federal, confira os números sorteados, valor da premiação e ganhadores.",
+    "Resultado da Loteria Federal, confira os números sorteados, valor da premiação da Loteria Federal das 19 horas da Caixa Loterias.",
   openGraph: {
     title: "Loteria Federal",
     description:
-      "Resultado da Loteria Federal, confira os números sorteados, valor da premiação e ganhadores.",
+      "Resultado da Loteria Federal, confira os números sorteados, valor da premiação da Loteria Federal das 19 horas da Caixa Loterias.",
   },
 }
 
@@ -44,17 +44,23 @@ export default function LoteriaFederalPage() {
             <h1 className="titulo-paginas text-center">Loteria Federal</h1>
             <p>
               Resultado da Loteria Federal, confira os números sorteados, valor
-              da premiação e ganhadores.
+              da premiação da Loteria Federal das 19 horas da Caixa Loterias.
             </p>
             <p>
               Os últimos resultados da Loteria Federal são informados nesta
-              página.
+              página, confira os números sorteados do primeiro ao quinto prêmio
+              da Federal da Caixa Loterias.
             </p>
             <div id="quadrantes">
               <LiveLotteryResults initialData={federalResults} slug="loteria-federal" lotteryName="Loteria Federal" cssClass="federal" />
             </div>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              A Loteria Federal é uma das loterias da Caixa Econômica Federal
+              gerida pelo Governo Federal, os sorteios ocorrem na quarta-feira e
+              sábado.
+            </p>
+            <p>
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

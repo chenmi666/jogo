@@ -6,7 +6,7 @@ export default function BreadcrumbSchema({ items }: { items: { name: string; url
       "@type": "ListItem",
       position: idx + 1,
       name: item.name,
-      item: `https://deunoposte.app.br${item.url}`,
+      item: `https://deunoposteagora.com${item.url}`,
     })),
   }
   return (

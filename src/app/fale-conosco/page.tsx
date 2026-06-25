@@ -29,7 +29,7 @@ export default function FaleConosco() {
             <h1>Fale Conosco</h1>
             <p>
               Entre em contato conosco através do email:{" "}
-              <strong>contato@deunoposte.app.br</strong>
+              <strong>contato@deunoposteagora.com</strong>
             </p>
             <p>
               O site Deu no Poste é um portal informativo sobre resultados do

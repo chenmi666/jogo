@@ -14,11 +14,11 @@ export const revalidate = 300
 export const metadata: Metadata = {
   title: "Mais Milionária",
   description:
-    "Resultado da Mais Milionária, confira os números sorteados, valor da premiação e ganhadores.",
+    "Resultado da Mais Milionária, confira os números sorteados, valor da premiação e ganhadores da loteria Mais Milionária da Caixa Loterias.",
   openGraph: {
     title: "Mais Milionária",
     description:
-      "Resultado da Mais Milionária, confira os números sorteados, valor da premiação e ganhadores.",
+      "Resultado da Mais Milionária, confira os números sorteados, valor da premiação e ganhadores da loteria Mais Milionária da Caixa Loterias.",
   },
 }
 
@@ -44,17 +44,24 @@ export default function MaisMilionariaPage() {
             <h1 className="titulo-paginas text-center">Mais Milionária</h1>
             <p>
               Resultado da Mais Milionária, confira os números sorteados, valor
-              da premiação e ganhadores.
+              da premiação e ganhadores da loteria Mais Milionária da Caixa
+              Loterias.
             </p>
             <p>
               Os últimos resultados da Mais Milionária são informados nesta
-              página.
+              página, confira os números sorteados e a quantidade de ganhadores
+              bem como o valor pago em cada faixa de acerto.
             </p>
             <div id="quadrantes">
               <LiveLotteryResults initialData={maisMilionariaResults} slug="mais-milionaria" lotteryName="Mais Milionária" cssClass="maismilionaria" />
             </div>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              A Mais Milionária é uma das loterias da Caixa Econômica Federal
+              gerida pelo Governo Federal, os sorteios da Mais Milionária
+              ocorrem na quarta-feira e sábado.
+            </p>
+            <p>
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deunoposte.app.br/sitemap.xml
+Sitemap: https://deunoposteagora.com/sitemap.xml

@@ -14,11 +14,11 @@ export const revalidate = 300
 export const metadata: Metadata = {
   title: "Quina",
   description:
-    "Resultado da Quina, confira os números sorteados, valor da premiação e ganhadores da Quina da Caixa Loterias.",
+    "Resultado da Quina, confira os números sorteados, valor da premiação e ganhadores da loteria Quina da Caixa Loterias.",
   openGraph: {
     title: "Quina",
     description:
-      "Resultado da Quina, confira os números sorteados, valor da premiação e ganhadores da Quina da Caixa Loterias.",
+      "Resultado da Quina, confira os números sorteados, valor da premiação e ganhadores da loteria Quina da Caixa Loterias.",
   },
 }
 
@@ -44,16 +44,23 @@ export default function QuinaPage() {
             <h1 className="titulo-paginas text-center">Quina</h1>
             <p>
               Resultado da Quina, confira os números sorteados, valor da
-              premiação e ganhadores da Quina da Caixa Loterias.
+              premiação e ganhadores da loteria Quina da Caixa Loterias.
             </p>
             <p>
-              Os últimos resultados da Quina são informados nesta página.
+              Os últimos resultados da Quina são informados nesta página,
+              confira os números sorteados e a quantidade de ganhadores bem como
+              o valor pago em cada faixa de acerto.
             </p>
             <div id="quadrantes">
               <LiveLotteryResults initialData={quinaResults} slug="quina" lotteryName="Quina" cssClass="quina" />
             </div>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              A Quina é uma das loterias da Caixa Econômica Federal gerida pelo
+              Governo Federal, os sorteios da Quina ocorrem de segunda-feira a
+              sábado.
+            </p>
+            <p>
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

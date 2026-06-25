@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   },
   description:
     "Resultado Deu no Poste de hoje, confira o resultado do Jogo do Bicho Oficial do Rio de Janeiro e das Loterias da Caixa.",
-  metadataBase: new URL("https://deunoposte.app.br"),
+  metadataBase: new URL("https://deunoposteagora.com"),
   icons: {
-    icon: "/templates/img/favicon/favicon-32x32.png",
-    apple: "/templates/img/favicon/apple-icon-180x180.png",
+    icon: "/templates/img/favicon/favicon-96x96.png",
+    apple: "/templates/img/favicon/apple-touch-icon.png",
   },
   openGraph: {
     siteName: "Deu no Poste - Resultado Oficial Jogo do Bicho",

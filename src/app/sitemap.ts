@@ -34,7 +34,7 @@ const staticPages = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://deunoposte.app.br"
+  const baseUrl = "https://deunoposteagora.com"
   return staticPages.map((page) => ({
     url: `${baseUrl}${page.url}`,
     lastModified: new Date(),

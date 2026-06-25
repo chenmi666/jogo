@@ -32,10 +32,7 @@ export default function Footer() {
                 height={50}
               />
             </Link>
-            <div className="clearfix" />
-            <a className="add-button2">
-              <button className="btn btn-outline">Baixar app</button>
-            </a>
+
           </div>
         </div>
       </div>
@@ -46,7 +43,7 @@ export default function Footer() {
             NunesHost
           </a>
         </p>
-        <p>© 2024 - deunoposte.app.br. Todos os direitos reservados.</p>
+        <p>© 2024 - deunoposteagora.com. Todos os direitos reservados.</p>
         <a
           className="maya"
           rel="external"

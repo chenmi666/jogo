@@ -14,11 +14,11 @@ export const revalidate = 300
 export const metadata: Metadata = {
   title: "Lotofácil",
   description:
-    "Resultado da Lotofácil, confira os números sorteados, valor da premiação e ganhadores da Lotofácil da Caixa Loterias.",
+    "Resultado da Lotofácil, confira os números sorteados, valor da premiação e ganhadores da loteria Lotofácil da Caixa Loterias.",
   openGraph: {
     title: "Lotofácil",
     description:
-      "Resultado da Lotofácil, confira os números sorteados, valor da premiação e ganhadores da Lotofácil da Caixa Loterias.",
+      "Resultado da Lotofácil, confira os números sorteados, valor da premiação e ganhadores da loteria Lotofácil da Caixa Loterias.",
   },
 }
 
@@ -44,7 +44,7 @@ export default function LotofacilPage() {
             <h1 className="titulo-paginas text-center">Lotofácil</h1>
             <p>
               Resultado da Lotofácil, confira os números sorteados, valor da
-              premiação e ganhadores da Lotofácil da Caixa Loterias.
+              premiação e ganhadores da loteria Lotofácil da Caixa Loterias.
             </p>
             <p>
               Os últimos resultados da Lotofácil são informados nesta página,
@@ -55,7 +55,12 @@ export default function LotofacilPage() {
               <LiveLotteryResults initialData={lotofacilResults} slug="lotofacil" lotteryName="Lotofácil" cssClass="lotofacil" />
             </div>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              A Lotofácil é uma das loterias da Caixa Econômica Federal gerida
+              pelo Governo Federal, os sorteios da Lotofácil ocorrem de
+              segunda-feira a sábado.
+            </p>
+            <p>
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

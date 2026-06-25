@@ -47,17 +47,11 @@ export default function PopupAd() {
         >
           Fechar &times;
         </span>
-        <a
-          target="_blank"
-          href="https://playbicho.com/cadastrar?ref_code=blog"
-          rel="nofollow noopener"
-        >
           <img
-            src="/221102/imagens/config/15062026015304.jpg"
+            src="/221102/imagens/config/1.png"
             alt="PlayBicho - Cadastre-se"
             style={{ width: "100%", height: "auto" }}
           />
-        </a>
       </div>
     </div>
   )

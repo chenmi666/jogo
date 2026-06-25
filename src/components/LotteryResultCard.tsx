@@ -74,7 +74,7 @@ function DuplaSenaBody({ result }: { result: LotteryResult }) {
 
 function SuperSeteBody({ result }: { result: LotteryResult }) {
   return (
-    <div className="alinha-numeros">
+    <div className="numeros-supersete">
       {result.numbers.map((num, idx) => (
         <div key={idx} className="supersete-individual">
           <span className="numero-individual">{idx + 1}ª Coluna</span>

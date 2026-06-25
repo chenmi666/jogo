@@ -14,11 +14,11 @@ export const revalidate = 300
 export const metadata: Metadata = {
   title: "Lotomania",
   description:
-    "Resultado da Lotomania, confira os números sorteados, valor da premiação e ganhadores.",
+    "Resultado da Lotomania, confira os números sorteados, valor da premiação e ganhadores da loteria Lotomania da Caixa Loterias.",
   openGraph: {
     title: "Lotomania",
     description:
-      "Resultado da Lotomania, confira os números sorteados, valor da premiação e ganhadores.",
+      "Resultado da Lotomania, confira os números sorteados, valor da premiação e ganhadores da loteria Lotomania da Caixa Loterias.",
   },
 }
 
@@ -44,16 +44,23 @@ export default function LotomaniaPage() {
             <h1 className="titulo-paginas text-center">Lotomania</h1>
             <p>
               Resultado da Lotomania, confira os números sorteados, valor da
-              premiação e ganhadores.
+              premiação e ganhadores da loteria Lotomania da Caixa Loterias.
             </p>
             <p>
-              Os últimos resultados da Lotomania são informados nesta página.
+              Os últimos resultados da Lotomania são informados nesta página,
+              confira os números sorteados e a quantidade de ganhadores bem como
+              o valor pago em cada faixa de acerto.
             </p>
             <div id="quadrantes">
               <LiveLotteryResults initialData={lotomaniaResults} slug="lotomania" lotteryName="Lotomania" cssClass="lotomania" />
             </div>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              A Lotomania é uma das loterias da Caixa Econômica Federal gerida
+              pelo Governo Federal, os sorteios da Lotomania ocorrem na
+              segunda-feira, quarta-feira e sexta-feira.
+            </p>
+            <p>
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

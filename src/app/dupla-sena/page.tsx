@@ -14,11 +14,11 @@ export const revalidate = 300
 export const metadata: Metadata = {
   title: "Dupla Sena",
   description:
-    "Resultado da Dupla Sena, confira os números sorteados, valor da premiação e ganhadores.",
+    "Resultado da Dupla Sena, confira os números sorteados, valor da premiação e ganhadores da loteria Dupla Sena da Caixa Loterias.",
   openGraph: {
     title: "Dupla Sena",
     description:
-      "Resultado da Dupla Sena, confira os números sorteados, valor da premiação e ganhadores.",
+      "Resultado da Dupla Sena, confira os números sorteados, valor da premiação e ganhadores da loteria Dupla Sena da Caixa Loterias.",
   },
 }
 
@@ -44,16 +44,23 @@ export default function DuplaSenaPage() {
             <h1 className="titulo-paginas text-center">Dupla Sena</h1>
             <p>
               Resultado da Dupla Sena, confira os números sorteados, valor da
-              premiação e ganhadores.
+              premiação e ganhadores da loteria Dupla Sena da Caixa Loterias.
             </p>
             <p>
-              Os últimos resultados da Dupla Sena são informados nesta página.
+              Os últimos resultados da Dupla Sena são informados nesta página,
+              confira os números sorteados e a quantidade de ganhadores bem como
+              o valor pago em cada faixa de acerto.
             </p>
             <div id="quadrantes">
               <LiveLotteryResults initialData={duplaSenaResults} slug="dupla-sena" lotteryName="Dupla Sena" cssClass="duplasena" />
             </div>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              A Dupla Sena é uma das loterias da Caixa Econômica Federal gerida
+              pelo Governo Federal, os sorteios da Dupla Sena ocorrem na
+              segunda-feira, quarta-feira e sexta-feira.
+            </p>
+            <p>
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

@@ -60,7 +60,7 @@ export default function MegaSenaPage() {
               na terça-feira, quinta-feira e sábado.
             </p>
             <p>
-              O site deunoposte.app.br não possui vínculo com pessoas e empresas
+              O site deunoposteagora.com não possui vínculo com pessoas e empresas
               que realizam apostas, nossa plataforma apenas informa os
               resultados. Não realizamos nenhum tipo de aposta.
             </p>

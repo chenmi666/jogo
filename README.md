@@ -1,14 +1,16 @@
-# Deu no Poste — Resultado Oficial do Jogo do Bicho
+# Deu no Poste Agora — Resultado Oficial do Jogo do Bicho
 
-**Versão 1.0.0** — com scraper automático e verificação completa
+**Versão 1.1.0** — domínio próprio, novo logo, PWA, sem dead links
 
 Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loterias da Caixa (Mega Sena, Lotofácil, Quina, etc.).
+
+**Domínio:** [deunoposteagora.com](https://deunoposteagora.com)
 
 ## Tecnologias
 
 - [Next.js](https://nextjs.org) (App Router) + TypeScript
 - Bootstrap 4 + CSS personalizado
-- Deploy: Zeabur
+- Deploy: Zeabur (auto-deploy via GitHub)
 - Cheerio (scraper)
 
 ## Funcionalidades
@@ -24,6 +26,8 @@ Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loter
 - Sitemap dinâmico (34 URLs)
 - Google Analytics GA4
 - Design responsivo Apple-flat
+- PWA com manifest e ícones (192×192, 512×512)
+- Super Sete com layout correto de colunas
 
 ### Cálculo do 7º prêmio (Multiplicação)
 
@@ -37,8 +41,6 @@ A página inicial exibe o resultado do Rio de Janeiro em formato compacto (7 ite
 
 Para sorteios **Federal 20 horas** (RS, MG, PR), usam-se os números completos de 5 dígitos da Loteria Federal como base.
 
-**Verificação:** todos os 14 draws com Multiplicação foram validados contra o site original.
-
 ## Estrutura
 
 ```
@@ -50,8 +52,6 @@ scripts/
 src/
 ├── app/              # Páginas (Next.js App Router)
 ├── components/       # Componentes reutilizáveis
-│   ├── LiveLotteryResults.tsx  # Polling cliente para loterias
-│   └── LiveBichoResults.tsx    # Polling cliente; suporte compact (1-5+Soma+Mult)
 ├── lib/
 │   ├── data.ts       # Leitura centralizada do JSON (build-time, server)
 │   └── bicho-utils.ts # Utilitários compartilhados (raw→BichoResult, compactOne)
@@ -63,7 +63,6 @@ src/
 
 ```bash
 npm install
-npm run scrape   # (opcional) força scraping manual
 npm run dev
 ```
 
@@ -72,13 +71,13 @@ Acesse [http://localhost:3000](http://localhost:3000).
 ## Build
 
 ```bash
-npm run build    # scrape + build estático
+npm run build
 ```
 
 ## Produção (com scheduler)
 
 ```bash
-npm start        # inicia scheduler + servidor Next.js
+npm start
 ```
 
 ## Variáveis de Ambiente
