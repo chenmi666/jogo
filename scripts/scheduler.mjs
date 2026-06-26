@@ -9,6 +9,7 @@ const DATA_PATH = resolve(__dirname, "..", "public", "data", "resultados.json")
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || ""
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || ""
+const BASE_URL = "https://deunoposteagora.com"
 
 // Retry state: slug -> { failedAttempts, lastDrawId }
 const retryState = {}
@@ -130,6 +131,8 @@ async function checkAndScrape() {
         console.log(`✅ ${entry.slug} updated: ${idBefore} -> ${idAfter}`)
         state.failedAttempts = 0
         slugsToRevalidate.push(entry.slug)
+        const url = `${BASE_URL}/${entry.slug}/`
+        await sendTelegram(`✅ ${url} 更新成功`)
       } else {
         state.failedAttempts++
       }
@@ -140,8 +143,8 @@ async function checkAndScrape() {
 
     // Telegram alert at max retries
     if (state.failedAttempts >= entry.maxRetries) {
-      const msg = `⚠️ [${entry.slug}] Após ${entry.maxRetries} tentativas (${entry.scrapeAfterMin + (entry.maxRetries - 1) * 3}min após o sorteio das ${entry.time}), o resultado ainda não foi atualizado.`
-      await sendTelegram(msg)
+      const url = `${BASE_URL}/${entry.slug}/`
+      await sendTelegram(`❌ ${url} 更新失败，多次均为拿到结果`)
       state.failedAttempts = 0 // Reset to avoid repeated alerts
     }
 
@@ -182,6 +185,8 @@ async function checkAndScrape() {
           console.log(`✅ ${entry.slug} @ ${drawTime} updated`)
           state.failedAttempts = 0
           if (!slugsToRevalidate.includes(entry.slug)) slugsToRevalidate.push(entry.slug)
+          const url = `${BASE_URL}/${entry.slug}/`
+          await sendTelegram(`✅ ${url} (${drawTime}) 更新成功`)
         } else {
           state.failedAttempts++
         }
@@ -191,8 +196,8 @@ async function checkAndScrape() {
       }
 
       if (state.failedAttempts >= entry.maxRetries) {
-        const msg = `⚠️ [${entry.label}] Sorteio das ${drawTime} — após ${entry.maxRetries} tentativas o resultado ainda não foi atualizado.`
-        await sendTelegram(msg)
+        const url = `${BASE_URL}/${entry.slug}/`
+        await sendTelegram(`❌ ${url} (${drawTime}) 更新失败，多次均为拿到结果`)
         state.failedAttempts = 0
       }
 
