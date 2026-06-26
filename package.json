@@ -7,7 +7,8 @@
     "build": "node scripts/scrape.mjs && next build",
     "start": "node scripts/start.mjs",
     "lint": "eslint",
-    "scrape": "node scripts/scrape.mjs"
+    "scrape": "node scripts/scrape.mjs",
+    "audit": "node scripts/audit.mjs"
   },
   "dependencies": {
     "bootstrap": "^4.6.2",

@@ -285,6 +285,46 @@ function parseBichoState($, $card) {
   return { sorteio, titulo, dayOfWeek, date, prizes, extra: extra.length ? extra : undefined }
 }
 
+/** Normalize string for comparison (strip diacritics) */
+function norm(s) {
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+}
+
+/** Validate scraped bicho data integrity */
+function validateBichoDraw(draw, slug) {
+  const issues = []
+  // Check date format
+  if (!/^\d{2}\/\d{2}\/\d{4}$/.test(draw.date)) {
+    issues.push(`日期格式异常: ${draw.date}`)
+  }
+  // Validate prizes
+  for (const p of draw.prizes) {
+    if (p.animal === "Soma" || p.animal === "Multiplicação") continue
+    // Check milhar is 4 or 5 digits (soma/mult can be longer)
+    if (p.position <= 5 && !/^\d{4}$/.test(p.milhar)) {
+      issues.push(`第${p.position}名 milhar 非4位数字: ${p.milhar}`)
+    }
+    // Check animal group consistency
+    if (p.group) {
+      const knownGroups = {1:"Avestruz",2:"Águia",3:"Burro",4:"Borboleta",5:"Cachorro",6:"Cabra",7:"Carneiro",8:"Camelo",9:"Cobra",10:"Coelho",11:"Cavalo",12:"Elefante",13:"Galo",14:"Gato",15:"Jacaré",16:"Leão",17:"Macaco",18:"Porco",19:"Pavão",20:"Peru",21:"Touro",22:"Tigre",23:"Urso",24:"Veado",25:"Vaca"}
+      const expectedAnimal = knownGroups[p.group]
+      if (expectedAnimal && norm(p.animal) !== norm(expectedAnimal)) {
+        issues.push(`第${p.position}名 动物/组号不匹配: ${p.animal}(${p.group}), 预期=${expectedAnimal}`)
+      }
+    }
+  }
+  // Verify Soma calculation for positions 1-5
+  const top5 = draw.prizes.filter(p => p.position >= 1 && p.position <= 5)
+  const somaPrize = draw.prizes.find(p => p.animal === "Soma")
+  if (top5.length === 5 && somaPrize) {
+    const calcSoma = top5.reduce((s, p) => s + parseInt(p.milhar, 10), 0)
+    if (String(calcSoma) !== somaPrize.milhar) {
+      issues.push(`Soma 校验失败: 计算值=${calcSoma}, 页面值=${somaPrize.milhar}`)
+    }
+  }
+  return issues
+}
+
 // --- URL discovery from homepage ---
 async function discoverUrls() {
   const html = await fetchPage("/")
@@ -359,6 +399,11 @@ async function main() {
     const draws = []
     $(".caixa-tabela.bixo").each((_, el) => {
       const draw = parseBichoState($, $(el))
+      // Validate integrity
+      const issues = validateBichoDraw(draw, name)
+      if (issues.length > 0) {
+        console.warn(`  ⚠️  ${name} - ${draw.date} ${draw.sorteio}: ${issues.join("; ")}`)
+      }
       draws.push(draw)
     })
     bichoResults[name] = draws

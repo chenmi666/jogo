@@ -7,8 +7,8 @@ import { lotterySchedule, bichoSchedule } from "./schedule.mjs"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_PATH = resolve(__dirname, "..", "public", "data", "resultados.json")
 
-const TELEGRAM_BOT_TOKEN = "8518186011:AAE-TPyqRTb64wXPsXb5tfP1mCQIpIoOSh4"
-const TELEGRAM_CHAT_ID = "5774057406"
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID
 const BASE_URL = "https://deunoposteagora.com"
 
 // Retry state: slug -> { failedAttempts, lastDrawId }
@@ -24,14 +24,22 @@ function readExisting() {
 
 function nowBrasilia() {
   const now = new Date()
-  // Brasília is UTC-3
-  const br = new Date(now.getTime() - 3 * 60 * 60 * 1000)
+  // Use Intl to get Brasília time (handles DST changes properly)
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit",
+    hour12: false,
+  })
+  const parts = formatter.formatToParts(now)
+  const get = (type) => parseInt(parts.find(p => p.type === type)?.value || "0", 10)
+  const year = get("year"), month = get("month"), day = get("day")
+  const hour = get("hour"), minute = get("minute")
+  const dow = new Date(year, month - 1, day).getDay()
   return {
-    hour: br.getUTCHours(),
-    minute: br.getUTCMinutes(),
-    dow: br.getUTCDay(),
-    iso: br.toISOString(),
-    timeStr: `${String(br.getUTCHours()).padStart(2, "0")}:${String(br.getUTCMinutes()).padStart(2, "0")}`,
+    hour, minute, dow,
+    iso: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00-03:00`,
+    timeStr: `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`,
   }
 }
 
@@ -42,8 +50,9 @@ function isInWindow(drawTime, scrapeAfterMin) {
   const nowTotal = now.hour * 60 + now.minute
   const diff = nowTotal - drawTotal
 
-  // Only scrape within the retry window: scrapeAfterMin to (scrapeAfterMin + maxRetries * 3) min after draw
-  return diff >= scrapeAfterMin && diff < scrapeAfterMin + 10 * 3 + 5
+  // Retry window: scrapeAfterMin to (scrapeAfterMin + maxRetries * 3 + 10) min after draw
+  // Extended from original to handle delayed publications
+  return diff >= scrapeAfterMin && diff < scrapeAfterMin + maxRetries * 3 + 15
 }
 
 function getLatestLotteryId(data, slug) {
