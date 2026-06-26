@@ -237,6 +237,9 @@ const INTERVAL_MS = 60_000 // check every 60 seconds
 console.log(`Scheduler started. Checking every ${INTERVAL_MS / 1000}s`)
 console.log(`Telegram alerts: ${TELEGRAM_BOT_TOKEN ? "enabled" : "disabled (set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID)"}`)
 
+// Notify on startup
+sendTelegram(`✅ Scheduler iniciado (${nowBrasilia().timeStr} BRT)`)
+
 // Initial check
 checkAndScrape()
 

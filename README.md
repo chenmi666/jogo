@@ -1,6 +1,6 @@
 # Deu no Poste Agora — Resultado Oficial do Jogo do Bicho
 
-**Versão 1.1.0** — domínio próprio, novo logo, PWA, sem dead links
+**Versão 1.2.0** — validação de dados, auditoria, notificação de inicialização
 
 Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loterias da Caixa (Mega Sena, Lotofácil, Quina, etc.).
 
@@ -19,7 +19,9 @@ Site de resultados de loterias brasileiras: Jogo do Bicho (Deu no Poste) e Loter
 - Scraper automático: busca resultados do site original sob demanda
 - Scheduler inteligente: agenda scraping conforme horário de cada sorteio
 - Atualização em tempo real via cliente (LiveResults) + ISR (revalidate=300)
-- Notificação Telegram quando scraping falha após 10 tentativas
+- Notificação Telegram: inicialização, sucesso e falha do scraping
+- Validação de dados: Soma, milhares, grupo/animal consistency
+- Auditoria automática: compara dados do site com o original (13 estados)
 - Navegação com abas iOS-style (Jogo do Bicho / Loterias da Caixa)
 - Breadcrumb visível em todas as páginas
 - Dados estruturados (JSON-LD: BreadcrumbList, Article)
@@ -46,8 +48,9 @@ Para sorteios **Federal 20 horas** (RS, MG, PR), usam-se os números completos d
 ```
 scripts/
 ├── scrape.mjs        # Scraper dos sites (--slug para incremental)
-├── scheduler.mjs     # Agendador com janela de tolerância
+├── scheduler.mjs     # Agendador com janela de tolerância + Telegram
 ├── schedule.mjs      # Tabela de horários de todos os sorteios
+├── audit.mjs         # Auditoria de dados (npm run audit)
 └── start.mjs         # Inicia scheduler + next start juntos
 src/
 ├── app/              # Páginas (Next.js App Router)
@@ -80,12 +83,13 @@ npm run build
 npm start
 ```
 
-## Variáveis de Ambiente
+## Auditoria
 
-| Variável | Descrição |
-|----------|-----------|
-| `TELEGRAM_BOT_TOKEN` | Token do bot do Telegram (alerta de falhas) |
-| `TELEGRAM_CHAT_ID` | Chat ID para receber alertas |
+```bash
+npm run audit
+```
+
+Compara todos os 13 estados do Jogo do Bicho entre o site original e o espelho. Gera relatório em `public/data/audit-report.json`.
 
 ## Licença
 
