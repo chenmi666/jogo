@@ -46,11 +46,16 @@ export function rawToBichoResult(raw: RawBichoDraw, slug: string): BichoResult {
   return { id, date: raw.date, dayOfWeek: raw.dayOfWeek, time, titulo: raw.titulo || "", timeLabel, prizes: raw.prizes, extra: raw.extra }
 }
 
-export function compactBichoResult(result: BichoResult): BichoResult {
+export function compactBichoResult(result: BichoResult, federalNumbers?: number[]): BichoResult {
   const top5 = result.prizes.slice(0, 5)
   const nums = top5.map((p) => parseInt(p.milhar, 10))
   const soma = nums.reduce((acc, n) => acc + n, 0)
-  const mult = String(Math.floor(nums[0] * nums[1] / 1000) % 1000).padStart(3, "0")
+  let p1 = nums[0], p2 = nums[1]
+  if (federalNumbers && federalNumbers.length >= 2) {
+    p1 = federalNumbers[0]
+    p2 = federalNumbers[1]
+  }
+  const mult = String(Math.floor(p1 * p2 / 1000) % 1000).padStart(3, "0")
   return {
     ...result,
     prizes: [

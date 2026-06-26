@@ -29,7 +29,13 @@ export default function LiveBichoResults({
         let newData = rawData.map((r) => rawToBichoResult(r, slug))
         if (newData[0].id !== initialIdRef.current) {
           initialIdRef.current = newData[0].id
-          if (compact) newData = newData.map(compactBichoResult)
+          if (compact) {
+            const federalNumbers: number[] | undefined = json.lotteries?.["loteria-federal"]?.[0]?.numbers
+            newData = newData.map((r) => {
+              const isFederal = r.time.toLowerCase().includes("federal")
+              return compactBichoResult(r, isFederal ? federalNumbers : undefined)
+            })
+          }
           setData(newData)
         }
       } catch {

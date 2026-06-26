@@ -6,14 +6,19 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema"
 import LiveBichoResults from "@/components/LiveBichoResults"
 import { bichoStates, caixaLoterias } from "@/data/navigation"
 import { rioDeJaneiroResults } from "@/data/jogo-do-bicho/rio-de-janeiro"
+import { federalResults } from "@/data/loterias/loteria-federal"
 import { compactBichoResult } from "@/lib/bicho-utils"
 
 const latestDate = rioDeJaneiroResults.length > 0 ? rioDeJaneiroResults[0].date : ""
 const latestResults = rioDeJaneiroResults.filter((r) => r.date === latestDate)
-const rioDeJaneiroResultsCompact = latestResults.map((r) => ({
-  ...compactBichoResult(r),
-  titulo: "Deu no Poste Rio de Janeiro",
-}))
+const federalNumbers = federalResults[0]?.numbers
+const rioDeJaneiroResultsCompact = latestResults.map((r) => {
+  const isFederal = r.time.toLowerCase().includes("federal")
+  return {
+    ...compactBichoResult(r, isFederal ? federalNumbers : undefined),
+    titulo: "Deu no Poste Rio de Janeiro",
+  }
+})
 
 export const revalidate = 300
 
