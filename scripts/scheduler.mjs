@@ -13,6 +13,8 @@ const BASE_URL = "https://deunoposteagora.com"
 
 // Retry state: slug -> { failedAttempts, lastDrawId }
 const retryState = {}
+// Track completed scrapes by day:key to avoid re-checking the same draw
+const completedSet = new Set()
 
 function readExisting() {
   try {
@@ -104,6 +106,7 @@ async function sendTelegram(message) {
 
 async function checkAndScrape() {
   const now = nowBrasilia()
+  const day = `${now.year}-${String(now.month).padStart(2, "0")}-${String(now.day).padStart(2, "0")}`
   const existing = readExisting()
   const slugsToRevalidate = []
 
@@ -111,20 +114,14 @@ async function checkAndScrape() {
   for (const entry of lotterySchedule) {
     if (!entry.days.includes(now.dow)) continue
 
+    const lkey = `${day}:${entry.slug}`
+    if (completedSet.has(lkey)) continue
+
     const idBefore = getLatestLotteryId(existing, entry.slug)
     const inWindow = isInWindow(entry.time, entry.scrapeAfterMin, entry.maxRetries)
     if (!inWindow) continue
 
     const state = retryState[entry.slug] || { failedAttempts: 0, lastDrawId: null }
-
-    // If data hasn't changed from last check, increment failure
-    if (idBefore && idBefore === state.lastDrawId && state.failedAttempts > 0) {
-      state.failedAttempts++
-    } else if (idBefore && idBefore !== state.lastDrawId) {
-      state.failedAttempts = 0
-    }
-
-    state.lastDrawId = idBefore
 
     console.log(`[${now.timeStr}] Checking ${entry.slug} (attempt ${state.failedAttempts + 1}/${entry.maxRetries})`)
 
@@ -139,6 +136,7 @@ async function checkAndScrape() {
       if (changed) {
         console.log(`✅ ${entry.slug} updated: ${idBefore} -> ${idAfter}`)
         state.failedAttempts = 0
+        completedSet.add(lkey)
         slugsToRevalidate.push(entry.slug)
         const url = `${BASE_URL}/${entry.slug}/`
         await sendTelegram(`✅ ${url} 更新成功`)
@@ -166,19 +164,15 @@ async function checkAndScrape() {
     if (!daySchedule) continue
 
     for (const drawTime of daySchedule.times) {
+      const bkey = `${day}:bicho:${entry.slug}:${drawTime}`
+      if (completedSet.has(bkey)) continue
+
       const inWindow = isInWindow(drawTime, entry.scrapeAfterMin, entry.maxRetries)
       if (!inWindow) continue
 
       const key = `bicho:${entry.slug}:${drawTime}`
       const idBefore = getLatestBichoId(existing, entry.slug, drawTime)
       const state = retryState[key] || { failedAttempts: 0, lastDrawId: null }
-
-      if (idBefore && idBefore === state.lastDrawId && state.failedAttempts > 0) {
-        state.failedAttempts++
-      } else if (idBefore && idBefore !== state.lastDrawId) {
-        state.failedAttempts = 0
-      }
-      state.lastDrawId = idBefore
 
       console.log(`[${now.timeStr}] Checking ${entry.slug} @ ${drawTime} (attempt ${state.failedAttempts + 1}/${entry.maxRetries})`)
 
@@ -193,6 +187,7 @@ async function checkAndScrape() {
         if (changed) {
           console.log(`✅ ${entry.slug} @ ${drawTime} updated`)
           state.failedAttempts = 0
+          completedSet.add(bkey)
           if (!slugsToRevalidate.includes(entry.slug)) slugsToRevalidate.push(entry.slug)
           const url = `${BASE_URL}/${entry.slug}/`
           await sendTelegram(`✅ ${url} (${drawTime}) 更新成功`)
