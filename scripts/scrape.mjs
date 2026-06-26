@@ -72,7 +72,7 @@ function parseResultados($, $resultados) {
 
 async function fetchPage(path) {
   const url = `${BASE}${path}`
-  const res = await fetch(url)
+  const res = await fetch(url, { signal: AbortSignal.timeout(15000) })
   if (!res.ok) throw new Error(`Failed ${url}: ${res.status}`)
   return await res.text()
 }

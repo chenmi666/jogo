@@ -152,7 +152,8 @@ async function checkAndScrape() {
     if (state.failedAttempts >= entry.maxRetries) {
       const url = `${BASE_URL}/${entry.slug}/`
       await sendTelegram(`❌ ${url} 更新失败，多次均为拿到结果`)
-      state.failedAttempts = 0 // Reset to avoid repeated alerts
+      state.failedAttempts = 0
+      completedSet.add(lkey)
     }
 
     retryState[entry.slug] = state
@@ -203,6 +204,7 @@ async function checkAndScrape() {
         const url = `${BASE_URL}/${entry.slug}/`
         await sendTelegram(`❌ ${url} (${drawTime}) 更新失败，多次均为拿到结果`)
         state.failedAttempts = 0
+        completedSet.add(bkey)
       }
 
       retryState[key] = state
