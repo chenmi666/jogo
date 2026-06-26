@@ -43,7 +43,7 @@ function nowBrasilia() {
   }
 }
 
-function isInWindow(drawTime, scrapeAfterMin) {
+function isInWindow(drawTime, scrapeAfterMin, maxRetries) {
   const now = nowBrasilia()
   const [h, m] = drawTime.split(":").map(Number)
   const drawTotal = h * 60 + m
@@ -112,7 +112,7 @@ async function checkAndScrape() {
     if (!entry.days.includes(now.dow)) continue
 
     const idBefore = getLatestLotteryId(existing, entry.slug)
-    const inWindow = isInWindow(entry.time, entry.scrapeAfterMin)
+    const inWindow = isInWindow(entry.time, entry.scrapeAfterMin, entry.maxRetries)
     if (!inWindow) continue
 
     const state = retryState[entry.slug] || { failedAttempts: 0, lastDrawId: null }
@@ -166,7 +166,7 @@ async function checkAndScrape() {
     if (!daySchedule) continue
 
     for (const drawTime of daySchedule.times) {
-      const inWindow = isInWindow(drawTime, entry.scrapeAfterMin)
+      const inWindow = isInWindow(drawTime, entry.scrapeAfterMin, entry.maxRetries)
       if (!inWindow) continue
 
       const key = `bicho:${entry.slug}:${drawTime}`
