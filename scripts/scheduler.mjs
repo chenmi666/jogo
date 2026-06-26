@@ -7,8 +7,8 @@ import { lotterySchedule, bichoSchedule } from "./schedule.mjs"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_PATH = resolve(__dirname, "..", "public", "data", "resultados.json")
 
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || ""
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || ""
+const TELEGRAM_BOT_TOKEN = "8518186011:AAE-TPyqRTb64wXPsXb5tfP1mCQIpIoOSh4"
+const TELEGRAM_CHAT_ID = "5774057406"
 const BASE_URL = "https://deunoposteagora.com"
 
 // Retry state: slug -> { failedAttempts, lastDrawId }
